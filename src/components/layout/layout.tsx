@@ -3,42 +3,44 @@ import { gridItems, crouselData } from '../../const/gridData';
 import Crousel from '../crousel/crousel';
 import Navbar from '../navigation/navBar';
 import Grid from '../grid/grid';
+import { Flexbox } from '../flexbox/flexbox';
 
 const style = {
-mainContainer: {
-width: '100%',
-       display: 'flex',
-       backgroundColor: 'white',
-       flexDirection: 'column',
-       alignItems: 'center',
-               },
-container: {
-display: 'flex',
-         backgroundColor: 'white',
-         justifyContent: 'space-between',
-         maxWidth: '1280px',
-         flexDirection: 'row',
-         width: '100%',
-         alignItems: 'center',
-           },
-flexItem: {
-color: 'white',
-       padding: '12px 8px',
-          },
-imgDiv: {
-width: '64px',
-       height: '64px',
-        },
-text: {
-color: 'black',
-       fontSize: '14px',
-       fontWeight: '500',
-      },
-img: {
-color: 'green',
-       width: '100%',
-       height: '100%',
-     },
+  mainContainer: {
+    width: '100%',
+    display: 'flex',
+    margin: '0 auto',
+    backgroundColor: 'white',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  container: {
+    display: 'flex',
+    backgroundColor: 'white',
+    justifyContent: 'space-between',
+    maxWidth: '1280px',
+    flexDirection: 'row',
+    width: '100%',
+    alignItems: 'center',
+  },
+  flexItem: {
+    color: 'white',
+    padding: '12px 8px',
+  },
+  imgDiv: {
+    width: '64px',
+    height: '64px',
+  },
+  text: {
+    color: 'black',
+    fontSize: '14px',
+    fontWeight: '500',
+  },
+  img: {
+    color: 'green',
+    width: '100%',
+    height: '100%',
+  },
 }
 
 /**
@@ -46,7 +48,7 @@ color: 'green',
  *  @param gridItems - array of objects with image and text
  *  @param style - object with styles for layout
  * */
-function FlexBox({gridItems, style}) { 
+function CategoryBar({gridItems, style}) { 
   return (
     <div style={style.mainContainer}>
       <div style={style.container}>
@@ -81,47 +83,14 @@ const crouselStyle = {
   },
 }
 
-const crouselItems = [
-  {
-    id: 1,
-    title: 'first',
-    img: 'https://picsum.photos/200/300',
-    alt: 'first',
-    selected: false,
-  },
-  {
-    id: 2,
-    title: 'second',
-    img: 'https://picsum.photos/200/300',
-    alt: 'second',
-    selected: true,
-  },
-]
-
-function Flex({items, style}) {
-  return (
-    <div style={style.mainContainer}>
-      {items.map((item) => (
-        <div key={item.id} style={style.flexItem}>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-          </p>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-// <Crousel items={crouselData} width='100%' height='30vh' />
-export default function Layout({ children }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <div className={styles.container}>
         <Navbar />
-        <FlexBox gridItems={gridItems} style={style} />
-        <Crousel />
-        <Grid height='45vh' width='100vw' />
-        <main>{children}</main>
+        <CategoryBar gridItems={gridItems} style={style} />
+        <Crousel height='280px' width='99%'/>
+        <Grid margin='0 0 8px 0' height='310px' width='99%' />
       </div>
     </>)
 }

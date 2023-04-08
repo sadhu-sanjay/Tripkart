@@ -1,88 +1,92 @@
 import { crouselData } from '../../const/gridData';
-import { useState , useEffect } from 'react'
-import animations from './scratchPad.module.css'
+import {useRef, useState , useEffect } from 'react'
+import pageStyles from './crousel.module.css'
 
-const style = {
 
-  container: {
-    width: '98%',
-    margin: '1%',
-    height: '280px',
-    backgroundColor: 'blue',
-    position: 'relative',
-    cursor: 'pointer',
-  },
+function Crousel({width, height}: {width: string; height: string}) {
 
-  mainContent: {
-    width: '100%',
-    height: '290px',
-    overflow: 'hidden',
-    crouselContainer: {
-      display: 'flex',
-      alignItems: 'flex-start',
-      width: '100%',
-      height: '280px',
-      backgroundColor: 'red',
+  const crouselRef = useRef(null)
+
+  const style = {
+
+    container: {
+      width: `${width}`,
+      height: `${height}`,
+      margin: '.5%',
+      backgroundColor: 'blue',
       position: 'relative',
-      flexDirection: 'column',
-      scrollbarWidth: 'none',
-      flexWrap: 'wrap',
-      imgDiv: {
+      cursor: 'pointer',
+      boxSizing: 'border-box'
+    },
+
+    mainContent: {
+      width: '100%',
+      height: '100%',
+      overflow: 'hidden',
+      crouselContainer: {
+        display: 'flex',
+        alignItems: 'flex-start',
         width: '100%',
-        backgroundColor: 'green',
         height: '280px',
-        boxSizing: 'border-box',
-        overflow: 'hidden',
-        img: {
-          minWidth: '1680px',
+        backgroundColor: 'red',
+        position: 'relative',
+        flexDirection: 'column',
+        scrollbarWidth: 'none',
+        flexWrap: 'wrap',
+        imgDiv: {
           width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          transformOrigin: 'center',
+          backgroundColor: 'brown',
+          height: '280px',
+          boxSizing: 'border-box',
+          overflow: 'hidden',
+          img: {
+            minWidth: '168px',
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            transformOrigin: 'center',
+          },
         },
-      },
-    }
-  },
+      }
+    },
 
-  leftButton: {
-    padding: '0',
-    width: '3%',
-    margin: 'none',
-    display: 'inline-block',
-    position: 'absolute',
-    left: '0',
-    top: 'calc(50% - 3rem)',
-    borderSizing: 'border-box',
-    height: '6rem',
-    borderRadius: '0 3px 3px 0',
-    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-    backgroundColor: 'white',
-    backgroundImage: 'URL(https://img.icons8.com/sf-black-filled/64/null/back.png)',
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-  },
-  rightButton: {
-    padding: '0',
-    width: '3%',
-    margin: 'none',
-    display: 'inline-block',
-    position: 'absolute',
-    right: '0',
-    top: 'calc(50% - 3rem)',
-    borderSizing: 'border-box',
-    height: '6rem',
-    borderRadius: '3px 0 0 3px',
-    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-    backgroundColor: 'white',
-    backgroundImage: 'URL(https://img.icons8.com/sf-black-filled/64/null/forward.png)',
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-  },
-}
-
-function Crousel() {
+    leftButton: {
+      padding: '0',
+      width: '3%',
+      margin: 'none',
+      display: 'inline-block',
+      position: 'absolute',
+      left: '0',
+      top: 'calc(50% - 3rem)',
+      borderSizing: 'border-box',
+      height: '6rem',
+      borderRadius: '0 3px 3px 0',
+      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      backgroundColor: 'white',
+      backgroundImage: 'URL(/ui/chevron_left_48.svg)',
+      backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+    },
+    rightButton: {
+      padding: '0',
+      width: '3%',
+      margin: 'none',
+      display: 'inline-block',
+      position: 'absolute',
+      right: '0',
+      top: 'calc(50% - 3rem)',
+      borderSizing: 'border-box',
+      height: '6rem',
+      borderRadius: '3px 0 0 3px',
+      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      backgroundColor: 'white',
+      backgroundImage: 'URL(/ui/chevron_right_48.svg)',
+      backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+    },
+  }
 
   const [ selectedIndex , setSelectedIndex ] = useState(0)
   const arrayCount = crouselData.length
@@ -90,8 +94,8 @@ function Crousel() {
 
   useEffect(() => {
     startInterval()
-
-
+    
+   
     return () => clearInterval(interval);
   }, [selectedIndex]);
 
@@ -111,6 +115,7 @@ function Crousel() {
       newIndex = 0
     }
 
+    console.log("Index", newIndex)
     setSelectedIndex(newIndex)
     animateToIndex(newIndex)
   }
@@ -129,9 +134,10 @@ function Crousel() {
 
   function animateToIndex(index: number) {
 
-    const crousel = document.getElementById('crouselContainer')!
-    crousel.style.transition = 'all 0.5s ease-in-out'
-    crousel.style.transform = 'translateX(-' + index * 100 + '%)'
+    if (crouselRef.current == null ) return
+
+    crouselRef.current.style.transition = 'all 0.5s ease-in-out'
+    crouselRef.current.style.transform = 'translateX(-' + index * 100 + '%)'
   }
 
   function onClickPrevious() {
@@ -152,7 +158,7 @@ function Crousel() {
     <>  
       <div style={style.container} >
         <div style={style.mainContent} onMouseEnter={stopAutoScroll} onMouseLeave={startAutoScroll}>
-          <div id="crouselContainer" style={style.mainContent.crouselContainer} > 
+          <div ref={crouselRef} style={style.mainContent.crouselContainer} > 
             {crouselData.map(item => (
               <div key={item.id} style={style.mainContent.crouselContainer.imgDiv} >
                 <img 
@@ -178,16 +184,5 @@ function Crousel() {
   )
 }
 
-export function fetchCrouselItem() {
-
-  // return json data after 2 seconds 
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(crouselData)
-    }, 1000)
-  })
-
-}
 
 export default Crousel;
-
