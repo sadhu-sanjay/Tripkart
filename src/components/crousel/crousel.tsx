@@ -1,4 +1,4 @@
-import { crouselData } from '../../const/gridData';
+import { crouselData } from '../../const/hardCodedData';
 import {useRef, useState , useEffect } from 'react'
 import pageStyles from './crousel.module.css'
 

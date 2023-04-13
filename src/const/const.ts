@@ -1,5 +1,6 @@
 
 type CSSProps = {
+    scrollBarWidth?: number
     children: React.ReactNode
     flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse'
     flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse'
@@ -17,6 +18,7 @@ type CSSProps = {
     margin?: string
     padding?: string
     backgroundColor?: string
+    boxSizing?: 'content-box' | 'border-box'
 }
 
-export CSSProps
+export default CSSProps

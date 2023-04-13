@@ -1,8 +1,10 @@
+
+
 import styles from './layout.module.css'
-import { gridItems, crouselData } from '../../const/gridData';
+import { gridItems, crouselData } from '../../const/hardCodedData';
 import Crousel from '../crousel/crousel';
 import Navbar from '../navigation/navBar';
-import Grid from '../grid/grid';
+import { Grid } from '../grid/grid';
 import { Flexbox } from '../flexbox/flexbox';
 
 const style = {
@@ -94,5 +96,4 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </div>
     </>)
 }
-
 

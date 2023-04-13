@@ -1,22 +1,6 @@
 import Item from "../models/Item";
 
-const data: Array<Item> = [
-  {
-    id: 1,
-    title: 'Mobiles',
-    img: '/images/tabbar/img1.png',
-    label: 'Mobiles',
-    alt: 'Mobiles',
-  },
-    {
-    id: 2,
-    title: 'Electronics',
-    img: '/images/tabbar/img2.png',
-    label: 'Electronics',
-    alt: 'Electronics',
-  },
-]
-
+import { FlexItemProps } from "../types/FlexItemProps";
 
 const crouselData = [
   {
@@ -61,6 +45,71 @@ const crouselData = [
   }
 ]
 
+const bestOfElectronics: Array<FlexItemProps> = [
+  {
+    id: 1,
+    title: 'Printers',
+    subtitle: 'From $ 100',
+    detail: 'HP & More',
+    img: '/images/bestOfElectronics/img1.jpeg',
+  },
+  {
+    id: 2,
+    title: 'First Ever Premium Power Banks',
+    subtitle: 'Show Now',
+    detail: 'Realme, Mi & More',
+    img: '/images/bestOfElectronics/img2.jpeg',
+  },
+  {
+    id: 3,
+    title: 'Monitors',
+    subtitle: 'From ₹ 10,000',
+    detail: 'Lenovo',
+    img: '/images/bestOfElectronics/img3.jpeg',
+  },
+  {
+    id: 4,
+    title: 'Laptops',
+    subtitle: 'From ₹ 10,000',
+    detail: 'Lenovo',
+    img: '/images/bestOfElectronics/img4.jpeg',
+  },
+  {
+    id: 5,
+    title: 'Headphones',
+    subtitle: 'From ₹ 10,000',
+    detail: 'Lenovo',
+    img: '/images/bestOfElectronics/img5.jpeg',
+  },
+  {
+    id: 6,
+    title: 'Smart Watches',
+    subtitle: 'From ₹ 10,000',
+    detail: 'Lenovo',
+    img: '/images/bestOfElectronics/img1.jpeg',
+  },
+  {
+    id: 7,
+    title: 'Smartphones',
+    subtitle: 'From ₹ 10,000',
+    detail: 'Lenovo',
+    img: '/images/bestOfElectronics/img2.jpeg',
+  },
+  {
+    id: 8,
+    title: 'Speakers',
+    subtitle: 'From ₹ 10,000',
+    detail: 'Lenovo',
+    img: '/images/bestOfElectronics/img3.jpeg',
+  },
+  {
+    id: 9,
+    title: 'Smart TVs',
+    subtitle: 'From ₹ 10,000',
+    detail: 'Lenovo',
+    img: '/images/bestOfElectronics/img4.jpeg',
+  },
+]
 
 
 const gridItems = [
@@ -133,20 +182,4 @@ const gridItems = [
 ];
 
 
-const gridStyles = {
-    grid: {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(20vw, 1fr))',
-        overflow: 'scroll',
-        gridColumnGap: '1rem',
-    },
-    card: {
-        height: '120px',
-        width: '90px',
-        border: '1px solid #ccc',
-        borderRadius: '5px'
-    }
-}
-
-
-export { crouselData, gridItems, gridStyles , data};
+export { crouselData, gridItems, bestOfElectronics};

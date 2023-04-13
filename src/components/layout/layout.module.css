@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: start;
   height: auto;
-  width: 100%;
+  width: 100vw;
   background-color: #282c34;
   color: white;
   font-size: calc(10px + 2vmin);
