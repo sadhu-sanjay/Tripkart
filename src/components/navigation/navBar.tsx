@@ -8,7 +8,7 @@ const styles: any = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#2370f4',
+    backgroundColor: '#fcbf04',
     boxShadow: '0 1px 1px 0 rgba(0,0,0,.16)',
   },
 

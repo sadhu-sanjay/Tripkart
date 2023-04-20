@@ -1,7 +1,7 @@
 
 type CSSProps = {
-    scrollBarWidth?: number
-    children: React.ReactNode
+    scrollbarWidth?: 'thin' | 'none' | 'auto'
+    children?: React.ReactNode
     flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse'
     flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse'
     justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly'

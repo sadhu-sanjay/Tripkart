@@ -1,5 +1,4 @@
 
-
 import styles from './layout.module.css'
 import { gridItems, crouselData } from '../../const/hardCodedData';
 import Crousel from '../crousel/crousel';
@@ -47,7 +46,7 @@ const style = {
 
 /**
  *  FlexBox Layout 
- *  @param gridItems - array of objects with image and text
+ *  @param gridItems - array of objects with image and tex
  *  @param style - object with styles for layout
  * */
 function CategoryBar({gridItems, style}) { 
@@ -68,6 +67,7 @@ function CategoryBar({gridItems, style}) {
 }
 
 const crouselStyle = {
+
   mainContainer: {
     display: 'flex',
     backgrowundColor: 'red',
@@ -93,7 +93,47 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <CategoryBar gridItems={gridItems} style={style} />
         <Crousel height='280px' width='99%'/>
         <Grid margin='0 0 8px 0' height='310px' width='99%' />
+        {/* <Testbox />  */}
       </div>
     </>)
 }
 
+
+function Testbox() {
+
+  const style = { 
+    container: {
+    },
+    slider: {
+      display: 'flex',
+    },
+    img: {
+      margin: '1px',
+      padding: '2px',
+    },
+  }
+
+  const images = [
+    'https://via.placeholder.com/220/00FF00?text=1',
+    'https://via.placeholder.com/220/00FF00?text=2',
+    'https://via.placeholder.com/220/00FF00?text=3',
+    'https://via.placeholder.com/220/00FF00?text=4',
+    'https://via.placeholder.com/220/00FF00?text=5',
+    'https://via.placeholder.com/220/00FF00?text=6',  
+    'https://via.placeholder.com/220/00FF00?text=7',
+    'https://via.placeholder.com/220/00FF00?text=8',
+    'https://via.placeholder.com/220/00FF00?text=9',
+    'https://via.placeholder.com/220/00FF00?text=10',
+  ]
+
+  return (
+    <div style={style.container} >
+      <div style={style.slider}>
+        {images.map((img, index) => (
+          <img key={index} style={style.img} src={img} />
+        ))}
+      </div>
+    </div>
+  )
+
+}
