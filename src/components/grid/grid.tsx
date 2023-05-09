@@ -1,12 +1,12 @@
 import { crouselData, bestOfElectronics} from '../../const/hardCodedData'
 import CSSProps from '../../const/const'
-import { FlexItemProps } from '../../types/FlexItemProps'
+import { FlexItemProps } from '../../types/flexItemProps'
 import { Flexbox } from '../flexbox/flexbox'
 
 function Grid({ backgroundColor, overflow, children, flexDirection, flexWrap, justifyContent, alignItems, alignContent, flex, order, 
                                 flexGrow, flexShrink, alignSelf, width, height, margin, padding }: CSSProps) {
 
-  const style = {
+  const style: any = {
     container: {
       width: `${width}`,
       height: `${height}`,
@@ -45,9 +45,6 @@ function Grid({ backgroundColor, overflow, children, flexDirection, flexWrap, ju
     },
   }
 
-  // append a copy of best of electronics to the end of the array
-  const bestOfElectronicsCopy = [...bestOfElectronics, ...bestOfElectronics]
-
 
   return (
     <div style={style.container}>
@@ -59,7 +56,7 @@ function Grid({ backgroundColor, overflow, children, flexDirection, flexWrap, ju
           </a>
         </div>
         <div style={style.gridItem2}>
-          <Flexbox overflow='scroll' alignItems='center' backgroundColor='white' children={bestOfElectronicsCopy} />
+          <Flexbox overflow='scroll' alignItems='center' backgroundColor='white' />
         </div>
       </div>
     </div>

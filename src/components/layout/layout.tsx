@@ -1,10 +1,9 @@
-
 import styles from './layout.module.css'
 import { gridItems, crouselData } from '../../const/hardCodedData';
 import Crousel from '../crousel/crousel';
-import Navbar from '../navigation/navBar';
 import { Grid } from '../grid/grid';
-import { Flexbox } from '../flexbox/flexbox';
+import { CategoryBar } from '../category/CategoryBar';
+import { HeaderMenuColored } from '../header/header';
 
 const style = {
   mainContainer: {
@@ -44,27 +43,6 @@ const style = {
   },
 }
 
-/**
- *  FlexBox Layout 
- *  @param gridItems - array of objects with image and tex
- *  @param style - object with styles for layout
- * */
-function CategoryBar({gridItems, style}) { 
-  return (
-    <div style={style.mainContainer}>
-      <div style={style.container}>
-        {gridItems.map((item) => (
-          <div key={item.id} style={style.flexItem}>
-            <div style={style.imgDiv}>
-              <img style={style.img} src={item.img} alt={item.alt} />
-            </div>
-            <div style={style.text}>{item.title}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 const crouselStyle = {
 
@@ -85,15 +63,17 @@ const crouselStyle = {
   },
 }
 
+import data  from '../header/attributes.json'
+import { useEffect } from 'react';
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <div className={styles.container}>
-        <Navbar />
+        <HeaderMenuColored links={data.links} />
         <CategoryBar gridItems={gridItems} style={style} />
         <Crousel height='280px' width='99%'/>
-        <Grid margin='0 0 8px 0' height='310px' width='99%' />
-        {/* <Testbox />  */}
+        <Grid height='310px' width='99%' />
       </div>
     </>)
 }
@@ -101,38 +81,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
 function Testbox() {
 
-  const style = { 
-    container: {
-    },
-    slider: {
-      display: 'flex',
-    },
-    img: {
-      margin: '1px',
-      padding: '2px',
-    },
-  }
-
-  const images = [
-    'https://via.placeholder.com/220/00FF00?text=1',
-    'https://via.placeholder.com/220/00FF00?text=2',
-    'https://via.placeholder.com/220/00FF00?text=3',
-    'https://via.placeholder.com/220/00FF00?text=4',
-    'https://via.placeholder.com/220/00FF00?text=5',
-    'https://via.placeholder.com/220/00FF00?text=6',  
-    'https://via.placeholder.com/220/00FF00?text=7',
-    'https://via.placeholder.com/220/00FF00?text=8',
-    'https://via.placeholder.com/220/00FF00?text=9',
-    'https://via.placeholder.com/220/00FF00?text=10',
-  ]
-
   return (
-    <div style={style.container} >
-      <div style={style.slider}>
-        {images.map((img, index) => (
-          <img key={index} style={style.img} src={img} />
-        ))}
-      </div>
+    // background color in tailwind css  width: '100%', height: '100%'
+    // w-full is not working in tailwind css
+    // https://tailwindcss.com/docs/width
+    <div  className='bg-pink-500 w-full h-1/3'>
     </div>
   )
 

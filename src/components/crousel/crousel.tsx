@@ -1,13 +1,14 @@
 import { crouselData } from '../../const/hardCodedData';
-import {useRef, useState , useEffect } from 'react'
+import React, {useRef, useState , useEffect } from 'react'
 import pageStyles from './crousel.module.css'
 
 
 function Crousel({width, height}: {width: string; height: string}) {
 
-  const crouselRef = useRef(null)
+  const crouselRef = useRef<HTMLDivElement>(null)
 
-  const style = {
+  
+  const style: any = {
 
     container: {
       width: `${width}`,
@@ -138,6 +139,7 @@ function Crousel({width, height}: {width: string; height: string}) {
 
     crouselRef.current.style.transition = 'all 0.5s ease-in-out'
     crouselRef.current.style.transform = 'translateX(-' + index * 100 + '%)'
+
   }
 
   function onClickPrevious() {

@@ -1,0 +1,18 @@
+{
+  "name": "learngraphql",
+  "version": "1.0.0",
+  "description": "A sample project. Goal of this is project is to learn Graph QL a face created. Query langauge.",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Elara India Private Limited.",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.8.0",
+    "mysql": "^2.18.1"
+  }
+}

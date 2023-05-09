@@ -1,6 +1,6 @@
 import Item from "../models/Item";
 
-import { FlexItemProps } from "../types/FlexItemProps";
+import { FlexItemProps } from "../types/flexItemProps";
 
 const crouselData = [
   {

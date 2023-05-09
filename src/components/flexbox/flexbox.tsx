@@ -1,5 +1,5 @@
 import CSSProps from "../../const/const"
-import { FlexItemProps } from "../../types/FlexItemProps"
+import { FlexItemProps } from "../../types/flexItemProps"
 import { bestOfElectronics } from "../../const/hardCodedData"
 import React from "react"
 
@@ -31,7 +31,7 @@ function Flexbox({
   }, [])
   
 
-  const style = {
+  const style: any = {
     flexContainer: {
       width: '100%',
       height: '100%',
@@ -62,7 +62,7 @@ function Flexbox({
     console.log('scrol Left', flexboxRef.current?.scrollLeft)
     console.log('offset width', flexboxRef.current?.offsetWidth)
     console.log('client width', flexboxRef.current?.clientWidth)
-    
+
 
     const scrollWidth = flexboxRef.current?.scrollWidth ?? 0
     const scrollLeft = flexboxRef.current?.scrollLeft ?? 0
@@ -89,16 +89,6 @@ function Flexbox({
     
 
   }
-    
-
-          
-
-
-
-    
-
-  
-
 
   function onButtonClick(button: HTMLButtonElement) {
 
@@ -140,7 +130,7 @@ function LeftButton({callback, show}: { callback: (button: HTMLButtonElement) =>
 
       let leftButtonRef = React.useRef<HTMLButtonElement>(null)
 
-      const style = {
+      const style: any = {
         leftButton: {
           zIndex: 1,
           display: show ? 'inline-block' : 'none',
@@ -170,7 +160,7 @@ function RightButton({callback, show}: {callback: (button: HTMLButtonElement) =>
 
   let rightButtonRef = React.useRef<HTMLButtonElement>(null)
   
-  const style = {
+  const style: any = {
     leftButton: {
       zIndex: 1,
       display: show  ? 'inline-block' :  'none',
@@ -199,7 +189,7 @@ function RightButton({callback, show}: {callback: (button: HTMLButtonElement) =>
 
 function FlexItem({ item }: { item: FlexItemProps }) {
 
-  const style = {
+  const style: any = {
     
     text: {
       display: 'flex',
@@ -249,7 +239,7 @@ function FlexItem({ item }: { item: FlexItemProps }) {
         objectFit: 'contain',
         transform: hover ? 'scale(1.04)' : 'scale(1)',
       }}>
-        <img style={{ width: '100%', height: '100%', objectFit: 'contain' }} src={item.img} alt={item.alt} />
+        <img style={{ width: '100%', height: '100%', objectFit: 'contain' }} src={item.img} alt={item.title} />
 
       </div>
       <div style={style.text}>
