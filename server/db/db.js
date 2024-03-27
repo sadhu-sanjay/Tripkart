@@ -28,4 +28,3 @@ const executeQuery = (query, params = []) => {
 };
 
 module.exports = { executeQuery };
-

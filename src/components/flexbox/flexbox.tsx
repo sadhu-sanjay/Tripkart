@@ -3,7 +3,6 @@ import { FlexItemProps } from "../../types/flexItemProps"
 import { bestOfElectronics } from "../../const/hardCodedData"
 import React from "react"
 
-
 function Flexbox({
   width = '100%',
   height = '100%',

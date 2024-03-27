@@ -6,12 +6,12 @@ const { GraphQLObjectType,
 } = require('graphql');
 
 const { executeQuery } = require('./db/db');
-
 const CategoryType = new GraphQLObjectType({
     name: 'Category',
     fields: () => ({
         id: { type: GraphQLID },
         nm: { type: GraphQLString },
+        img: { type: GraphQLString },
     })
 })
 
@@ -73,6 +73,7 @@ const RootQuery = new GraphQLObjectType({
 })
 
 module.exports = new GraphQLSchema({
-    query: RootQuery
+    query: RootQuery,
+    graphiql: true
 })
 

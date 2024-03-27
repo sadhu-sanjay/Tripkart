@@ -8,3 +8,9 @@ export interface NavItem {
   style?: React.CSSProperties;
   children?: NavItem[];
 }
+
+export interface Category {
+  id: number;
+  nm: string;
+  img: string;
+}

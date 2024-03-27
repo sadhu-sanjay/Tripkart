@@ -1,10 +1,10 @@
-
 require('dotenv').config()
-
+const port = process.env.PORT || 4000
 const express = require("express")
 const app = express()
-const port = process.env.PORT || 5001;
 const schema = require('./schema')
+const cors = require('cors')
+app.use(cors())
 
 const { graphqlHTTP } = require('express-graphql');
 
@@ -13,10 +13,7 @@ app.use('/graphql', graphqlHTTP({
     graphiql: true  
 }))
 
-app.get("/product", (req, res) => {
-    res.send("Hello World")
-})
-
-app.listen(port, () => {
+app.listen(port, '127.0.0.1', () => {
     console.log(`Server is running on port ${port}`)
 })
+
